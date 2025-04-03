@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<div class="split left">
+  <div class="centered">
+    
+  <head>
+    <title>Quiz App </title>
+    <link rel = "stylesheet" href = "studyGuide.css">
+  </head>
+  <body>
+	  <div class = "app">
+		  <h1>Simple Quiz</h1>
+		  <div class = "quiz">
+			  <h2 id = "question">Question goes here</h2>
+			  <div id = "answer-buttons">
+				  <button class = "btn">Answer 1</button>
+				  <button class = "btn">Answer 2</button>
+				  <button class = "btn">Answer 3</button>
+				  <button class = "btn">Answer 4</button>
+	          </div>
+	          <button id = "next-btn">Next</button>
+	      </div>
+	  </div>       
+	  <div>
+                <a href="index.html">
+                    <button class="scores-header" 
+                            id="view-high-scores">
+                        Home Page
+                    </button>
+                </a>
+				<p>Score: <span id="score">0</span></p>
+	  <script src="studyGuide.js"></script>	
+  </body>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="split right">
+  <div class="centered">
+   
+<head>
+   
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <h1>Memory Game</h1>
+    <p>Score: <span id="score">0</span></p>
+    <div class="game-board" id="gameBoard"></div>
+    <script src="game.js"></script>
+	<div>
+                <a href="index.html">
+                    <button class="scores-header" 
+                            id="view-high-scores">
+                        Home Page
+                    </button>
+                </a>
+</body>
+</html>
+  </div>
+</div>
+</html>
+<style>
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #170;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: red;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+</style>
