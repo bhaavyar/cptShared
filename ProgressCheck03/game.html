@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz + Memory Game</title>
+  <link rel="stylesheet" href="studyGuide.css">
+  <link rel="stylesheet" href="game.css">
+  
+ 
+</head>
+<body>
+
+  <!-- Memory Game -->
+  <div class="box">
+    <h2>Memory Game</h2>
+    <p>Score: <span id="score">0</span></p>
+    <div class="game-board" id="gameBoard"></div>
+	<a href="index.html">
+	<button>Home Page</button>
+	</a>
+  </div>
+
+  <!-- Quiz Game -->
+  <div class="box">
+    <h2>Quiz</h2>
+    <h3 id="question">Question goes here</h3>
+    <div id="answers"></div>
+    <button id="next-btn">Next</button>
+    <div id="result"></div>
+  </div>
+
+  <script src="game.js"></script>
+  <script src="studyGuide.js"></script>
+</body>
+</html>
