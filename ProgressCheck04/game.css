@@ -1,0 +1,108 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 40px;
+  text-align: center;
+}
+
+.quiz-container {
+  background: white;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.answer-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  background-color: #e7e7e7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.answer-btn:hover {
+  background-color: #dcdcdc;
+}
+body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 40px;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .card {
+      width: 80px;
+      height: 80px;
+      background-color: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .answer-btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 80%;
+      background-color: #e7e7e7;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .answer-btn:hover {
+      background-color: #dcdcdc;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
