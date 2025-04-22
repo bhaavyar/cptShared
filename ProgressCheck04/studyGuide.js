@@ -42,30 +42,30 @@ answersElement.appendChild(button);
 nextButton.style.display = "none"; // Hide the "Next" button until an answer is selected
 resultElement.textContent = ""; // Clear any previous result message
 }
-
-function selectAnswer(questions, index) {
-if (index === correctAnswers[currentQuestion])
+// function with array passed in, if else, and a return
+function selectAnswer(questions, index) 
 {
-score++; //Checks if the clicked answer was correct, and increases the score
-}
+	if (index === correctAnswers[currentQuestion])
+	{
+		score++; //Checks if the clicked answer was correct, and increases the score
+	}
 
-let buttons = answersElement.children;
-for (let i = 0; i < buttons.length; i++)
-{
-buttons[i].disabled = true;
+	let buttons = answersElement.children;
+	for (let i = 0; i < buttons.length; i++)
+	{
+		buttons[i].disabled = true;
 
-if (i === correctAnswers[currentQuestion])
-{
-buttons[i].style.backgroundColor = "#90ee90"; // green for correct
-   }
-   else
-   {
-buttons[i].style.backgroundColor = "#f08080"; // red for incorrect
-   }
-}
-
-nextButton.style.display = "inline-block"; //Shows the "Next" button after an answer is selected.
-return currentQuestion;
+		if (i === correctAnswers[currentQuestion])
+		{
+			buttons[i].style.backgroundColor = "#90ee90"; // green for correct
+		}
+		else
+		{
+			buttons[i].style.backgroundColor = "#f08080"; // red for incorrect
+		}
+	}
+	nextButton.style.display = "inline-block"; //Shows the "Next" button after an answer is selected.
+	return currentQuestion;
 }
 
 nextButton.addEventListener("click", function() //https://stackoverflow.com/questions/73348500/javascript-event-listener-structure
