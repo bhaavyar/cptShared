@@ -158,17 +158,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // === Handle answer selection ===
-function selectAnswer(index, questions) 
-{
-  let isCorrect = index === correctAnswers[currentQuestion];
-  if (isCorrect) 
-  {
+function selectAnswer(index, questions) {
+  var isCorrect = index === correctAnswers[currentQuestion];
+  if (isCorrect) {
     score++;
   }
 
-  // --- Disable buttons and color‑code them ---
-  let buttons = answersElement.children;
-  for (let i = 0; i < buttons.length; i++) {
+  /* --- Disable buttons and color‑code them --- */
+  var buttons = answersElement.children;
+  for (var i = 0; i < buttons.length; i++) {
     buttons[i].disabled = true;
 
     if (i === correctAnswers[currentQuestion]) {
@@ -178,32 +176,34 @@ function selectAnswer(index, questions)
     }
   }
 
-  // --- Decide what to do next ---
-  if (currentQuestion === questions.length - 1) 
-  {
-    nextButton.style.display = "none";  // last question
-    showResult();
-  } 
-  else 
-  {
-    nextButton.style.display = "inline-block";
+  /* --- ALWAYS reveal the Next button --- */
+  nextButton.style.display = "inline-block";
+
+  /* --- If this was the final question, clicking Next shows results --- */
+  if (currentQuestion === questions.length - 1) {
+    // Replace the usual next‑question logic with a one‑time result reveal
+    nextButton.onclick = showResult;
+  } else {
+    // Ensure normal advance for any other question
+    nextButton.onclick = handleNextClick;
   }
 
   return isCorrect;
 }
 
+/* ---------- Advance to next question handler ---------- */
+function handleNextClick() {
+  currentQuestion++;
+  showCard(questions, answers);    // Draw the next card
+  nextButton.style.display = "none"; // Hide until the next answer is chosen
+}
+
+/* ---------- Initial setup ---------- */
+nextButton.style.display = "none";     // Hidden at the very start
 nextButton.addEventListener("click", handleNextClick);
 
-function handleNextClick() {
-  currentQuestion++; // moves to next question
-  if (currentQuestion < questions.length) {
-    showQuestion(questions, options, currentQuestion); //if under range of questions, keep showing questions
-  } else {
-    showResult();
-  }
-}
     // === Go to next quiz question ===
-    nextButton.addEventListener("click", function () {
+nextButton.addEventListener("click", function () {
         currentQuestion++;
         gamePaused = false; // Resume memory game
 
