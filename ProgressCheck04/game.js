@@ -158,23 +158,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // === Handle answer selection ===
-    function selectAnswer(index, questions, options) {
-  var isCorrect = index === correctAnswers[currentQuestion]; // checks is index equals correct answers is true
-  if (isCorrect) {
-    score++; // increments score
+function selectAnswer(index, questions) 
+{
+  let isCorrect = index === correctAnswers[currentQuestion];
+  if (isCorrect) 
+  {
+    score++;
   }
 
-  var buttons = answersElement.children;
-  for (var i = 0; i < buttons.length; i++) { // if answer unclicked leave buttons disabled/no color
+  // --- Disable buttons and color‑code them ---
+  let buttons = answersElement.children;
+  for (let i = 0; i < buttons.length; i++) {
     buttons[i].disabled = true;
+
     if (i === correctAnswers[currentQuestion]) {
-      buttons[i].style.backgroundColor = "#90ee90"; // if answer correct, color green
+      buttons[i].style.backgroundColor = "#90ee90"; // green
     } else {
-      buttons[i].style.backgroundColor = "#f08080"; // if answer wrong, color red
+      buttons[i].style.backgroundColor = "#f08080"; // red
     }
   }
 
-  nextButton.style.display = "inline-block";
+  // --- Decide what to do next ---
+  if (currentQuestion === questions.length - 1) 
+  {
+    nextButton.style.display = "none";  // last question
+    showResult();
+  } 
+  else 
+  {
+    nextButton.style.display = "inline-block";
+  }
 
   return isCorrect;
 }
