@@ -1,6 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     text-align: center;
+    font-size: 25px;
 }
 
 .game-board {
@@ -33,23 +34,28 @@ body
    background-color: black;
 }
  * {
-     font-family: Georgia, Times, "Times New Roman", serif;
+     font-family: Arial;
  }
  button {
-     display: inline-block;
-     margin: 10px;
+     margin: 40px;
+     height: 100px;
+     width: 180px; 
      cursor: pointer;
      color: black;
-     background-color: pink;
+     font-size: 15px;
+     background-color: #90EE90;
      border-radius: 5px;
-     border: 0;
-     padding: 20px;
  }
 
  button:hover {
-     background-color: pink;
+     background-color: #50A747;
  }
 
  .options button {
      display: block;
+ }
+ img {
+	 position: absolute;
+	 top: 380px;
+	 left: 500px;
  }

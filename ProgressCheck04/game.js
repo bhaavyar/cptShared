@@ -1,16 +1,19 @@
-
-document.addEventListener('DOMContentLoaded', () => {
-    // === Memory Game Variables ===
-    // Array of image file names (2 of each to make pairs)
-    let symbols = [
-        'stop.jpg', 'stop.jpg',
-        'uturn.jpg', 'uturn.jpg',
-        'pedcrossing.jpg', 'pedcrossing.jpg',
-        'addedlane.jpg', 'addedlane.jpg',
-        'noparking.jpg', 'noparking.jpg',
-        'yield.jpg', 'yield.jpg',
-        'railcross.jpg', 'railcross.jpg',
-        'freeway.jpg', 'freeway.jpg'
+/* https://marina-ferreira.github.io/tutorials/js/memory-game/ */
+// https://www.geeksforgeeks.org/css-grid-layout-module/
+// https://www.youtube.com/watch?v=mohIQB_70Xk&t=60s
+document.addEventListener('DOMContentLoaded', () => 
+{
+	// === Memory Game Variables ===
+	// Array of image file names (2 of each to make pairs)
+	let symbols = [
+	'stop.jpg', 'stop.jpg',// https://www.photos-public-domain.com/wp-content/uploads/2010/10/stop_sign.jpg
+	'uturn.jpg', 'uturn.jpg',// https://static.vecteezy.com/system/resources/previews/002/306/707/original/u-turn-left-traffic-road-sign-free-vector.jpg
+	'pedcrossing.jpg', 'pedcrossing.jpg',// https://static.grainger.com/rp/s/is/image/Grainger/3ZTJ6_AL01
+	'addedlane.jpg', 'addedlane.jpg',// https://roadinstructor.com/wp-content/uploads/2023/01/added-lane-sign.png
+	'noparking.jpg', 'noparking.jpg', //https://www.istockphoto.com/photos/no-parking-sign
+    'yield.jpg', 'yield.jpg', //https://ledlighting-solutions.com/solar-powered-flashing-led-yield-sign.html
+    'railcross.jpg', 'railcross.jpg', //https://driving-tests.org/road-signs/railroad-crossing-sign/
+    'freeway.jpg', 'freeway.jpg' //https://dmv-permit-test.com/road-signs/cross-road-sign
     ];
 
     // Shuffle the array randomly
@@ -157,53 +160,63 @@ document.addEventListener('DOMContentLoaded', () => {
         resultElement.textContent = "";
     }
 
-    // === Handle answer selection ===
-function selectAnswer(index, questions) {
-  var isCorrect = index === correctAnswers[currentQuestion];
-  if (isCorrect) {
-    score++;
-  }
+    // MAIN FUNCTION!!
+	function selectAnswer(index, questions) 
+	{
+		var isCorrect = index === correctAnswers[currentQuestion];
+		if (isCorrect) 
+		{
+			quizScore++;
+		}
 
-  /* --- Disable buttons and color‑code them --- */
-  var buttons = answersElement.children;
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].disabled = true;
+	  /* --- Disable buttons and color‑code them --- */
+		var buttons = answersElement.children;
+		for (var i = 0; i < buttons.length; i++) 
+		{
+			buttons[i].disabled = true;
 
-    if (i === correctAnswers[currentQuestion]) {
-      buttons[i].style.backgroundColor = "#90ee90"; // green
-    } else {
-      buttons[i].style.backgroundColor = "#f08080"; // red
-    }
-  }
+			if (i === correctAnswers[currentQuestion]) 
+			{
+				buttons[i].style.backgroundColor = "#90ee90"; // green
+			} 
+			else 
+			{
+				buttons[i].style.backgroundColor = "#f08080"; // red
+			}
+		}
 
-  /* --- ALWAYS reveal the Next button --- */
-  nextButton.style.display = "inline-block";
+		/* --- ALWAYS reveal the Next button --- */
+		nextButton.style.display = "inline-block";
 
-  /* --- If this was the final question, clicking Next shows results --- */
-  if (currentQuestion === questions.length - 1) {
-    // Replace the usual next‑question logic with a one‑time result reveal
-    nextButton.onclick = showResult;
-  } else {
-    // Ensure normal advance for any other question
-    nextButton.onclick = handleNextClick;
-  }
+		/* --- If this was the final question, clicking Next shows results --- */
+		if (currentQuestion === questions.length - 1) 
+		{
+			// Replace the usual next‑question logic with a one‑time result reveal
+			nextButton.onclick = showResult;
+		} 
+		else 
+		{
+			// Ensure normal advance for any other question
+			nextButton.onclick = handleNextClick;
+		}
 
-  return isCorrect;
-}
+		return isCorrect;
+	}
 
 /* ---------- Advance to next question handler ---------- */
-function handleNextClick() {
-  currentQuestion++;
-  showCard(questions, answers);    // Draw the next card
-  nextButton.style.display = "none"; // Hide until the next answer is chosen
-}
+	function handleNextClick() 
+	{
+	  currentQuestion++;
+	  showCard(questions, answers);    // Draw the next card
+	  nextButton.style.display = "none"; // Hide until the next answer is chosen
+	}
 
-/* ---------- Initial setup ---------- */
-nextButton.style.display = "none";     // Hidden at the very start
-nextButton.addEventListener("click", handleNextClick);
+	/* ---------- Initial setup ---------- */
+	nextButton.style.display = "none";     // Hidden at the very start
+
 
     // === Go to next quiz question ===
-nextButton.addEventListener("click", function () {
+	nextButton.addEventListener("click", function () {
         currentQuestion++;
         gamePaused = false; // Resume memory game
 
@@ -220,7 +233,8 @@ nextButton.addEventListener("click", function () {
     });
 
     // === Show final quiz score ===
-    function showResult() {
+    function showResult() 
+	{
         questionElement.textContent = "Quiz Completed!";
         answersElement.innerHTML = "";
         nextButton.style.display = "none";
